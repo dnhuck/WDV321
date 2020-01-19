@@ -146,7 +146,7 @@
 </body>
 	<script>
 	
-		let targetNumber=0;	//this global variable will store the target number to be guessed in the Hi-Low Game
+		let targetNumber = 0;	//this global variable will store the target number to be guessed in the Hi-Low Game
 		
 		//1. Create an array called numberRanges for the following numbers 5,10,20
 		let numberRanges, text, numRange, i;
@@ -171,8 +171,9 @@
 			
 			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the return value in targetNumber
 			
-			randomNumber(val1);
-			return targetNumber;
+			let ranNum = randomNumber(val1);
+			targetNumber = ranNum;
+			
 		}//end getTargetNumber()
 	
 	
