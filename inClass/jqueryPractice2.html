@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<style>
+	
+	.red{
+		background-color: red;
+		color: white;
+		text-align: center;
+	}
+	
+	.blue{
+		background-color: blue;
+		color: white;
+		text-align: center;
+	}
+	
+</style>
+	
+<script>
+	
+	$(document).ready(function(){
+		
+		$("#button1").click(function(){
+			
+			//alert("this is working");
+			$(".red").hide();
+			
+		});
+		
+		$("#button2").click(function(){
+			
+			$(".red").toggle();
+			
+		});
+		
+	});
+	
+</script>
+</head>
+
+<body>
+	
+	<h1>WDV321 Advanced JavaScript</h1>
+	<h2>Dynamic Structure of a Web Page</h2>
+	
+	<div class="red">
+		<h3>This is RED</h3>
+	</div>
+	
+	<div class="blue">
+		<h3>This is BLUE</h3>
+	</div>
+	
+	<p>
+		<button id="button1">Button 1</button>
+	</p>
+	
+	<p>
+		<button id="button2">Button 2</button>
+	</p>
+	
+	<p>
+		<button id="button3">Button 3</button>
+	</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

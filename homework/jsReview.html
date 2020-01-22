@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <title>DMACC WDV221 Intro Javascript</title>
 
 	<style>
@@ -66,8 +67,6 @@
 
 	</style>
     
-    
-
 </head>
 
 <body>
@@ -104,7 +103,6 @@
                 <option>test</option>
             </select>
       	</p>
-        <p id="result"></p>
                 
 	</section>
     
@@ -112,6 +110,7 @@
     
         <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
 		<p>Use the following form to play the game.</p> 
+		<p>Please select a number between 1- <span id="chosenNumber"></span></p>
         
         <form>
         
@@ -122,7 +121,8 @@
             
             <p>
             <input type="button" value="Guess?" onClick="hiLowGame()">
-            <input type="reset" value="Reset" onClick="reset()">
+            <input type="reset" value="Reset" id="reset">
+			<input type="button" value="Show me the number" id="cheater">
             <span id="outResults"></span> <!-- results go here -->
             </p>
 
@@ -135,7 +135,7 @@
 	<div class="clearFloat"></div>
     
 	<footer>
-		<p>Copyright &copy;2020 jhgullion.com. All rights reserved.</p>
+		<p>Copyright &copy;<span></span> jhgullion.com. All rights reserved.</p>
 	</footer>
     
     
@@ -146,14 +146,11 @@
 </body>
 	<script>
 	
-		let targetNumber = 0;	//this global variable will store the target number to be guessed in the Hi-Low Game
+		let targetNumber = 0;	
 		
-		//1. Create an array called numberRanges for the following numbers 5,10,20
 		let numberRanges, text, numRange, i;
-		numberRanges = [5, 10, 20];
+		numberRanges = ["Choose", 5, 10, 20];
 		numRange = numberRanges.length;
-		
-		//2. Use the numberRanges array to populate the topNumber dropdown list
 			
 			text = "<select>";
 			for (i = 0; i < numRange; i++) {
@@ -161,60 +158,72 @@
 			}
 			text += "</select>";
 		
-			document.querySelector("#topNumber").innerHTML = text;
+			$("#topNumber").html(text);
 	
 		function getTargetNumber() {
-			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-				let val1 = document.querySelector("#topNumber").value;
-				//console.log(val1); //testing that the value is working
 			
-			
-			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the return value in targetNumber
-			
+			let val1 = $("#topNumber").val();
+				
 			let ranNum = randomNumber(val1);
 			targetNumber = ranNum;
-			
-		}//end getTargetNumber()
+		}
+		
+		// JQUERY
+		$("#topNumber").change(function(){
+			let val1 = $("#topNumber").val();
+			$("#chosenNumber").html(val1);
+		});
+		
+		$("#reset").click(function(){
+			$("#outResults").html("");
+			$("#inputNumber").html("");
+		});
+		
+		$("#topNumber").change(function(){
+			$("#outResults").html("");
+		});
+		
+		$("#cheater").click(function(){
+			let val1 = $("#topNumber").val();
+			let ranNum = randomNumber(val1);
+			targetNumber = ranNum;
+			$("#outResults").html(ranNum);
+		});
+		
+		$("footer p span").html(new Date().getFullYear());
+		// end jquery
 	
-	
-		function hiLowGame(){
-			//alert("inside redGreenGame()");	
+		function hiLowGame(){	
 			
-			let inNumb = document.querySelector("#inputNumber").value;
+			let inNumb = $("#inputNumber").val();
 			
-			if( inNumb == targetNumber )		//5. There is a problem with the if statement
-			{
-				//6. display CORRECT!!!	
-				document.querySelector("#result").innerHTML = "CORRECT!";
+			if( inNumb == targetNumber )		
+			{	
+				$("#outResults").html("CORRECT!");
+				$("#outResults").css("color", "green");
 			}
 			else
 			{
 				if( inNumb < targetNumber)
 				{
-				document.querySelector("#result").innerHTML = "HIGHER!";
-					//7. display HIGHER!	
+				$("#outResults").html("HIGHER!");
+				$("#outResults").css("color", "red");
 				}
 				else
 				{
-					//8. display LOWER	
-				document.querySelector("#result").innerHTML = "LOWER!";
-
+				$("#outResults").html("LOWER!");
+				$("#outResults").css("color", "red");
 				}
 			}
 			
-		}//end hiLowGame()
+		}
 		
 		function randomNumber(inTopNum) {
-			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
+			return Math.floor(Math.random()* inTopNum) + 1;	
 		}
 		
-		function reset(){
-			targetNumber = 0;
-			document.querySelector("#inputNumber").innerHTML = "";
-			document.querySelector("#result").innerHTML = "";
-		}
-	
-	
+		
+			
 	</script>
 </html>
 
