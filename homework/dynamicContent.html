@@ -3,12 +3,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>WDV321 Advanced Javascript Dynamic Form Example</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 
 <script>
 
 var productsArray = new Array("Pen","Paper","Pencil");
 
 var colorsArray = new Array("Red","Yellow","Green");
+	
+let productsArrayLength = productsArray.length;
+	
+let colorArrayLength = colorsArray.length;
+	
+	$(document).ready(function(){
+		
+		let displayProducts = document.querySelector("#addProducts");
+		
+		displayProducts.onclick = function(){
+				document.querySelector("#displayItems").innerHTML = 
+				text = "<select>";
+				for (i = 0; i < productsArrayLength; i++) {
+					text += "<option>" + productsArray[i] + "</option>";
+					}
+					text += "</select>";
+					document.querySelector("#displayItems").innerHTML = text;
+		};
+		
+		let displayColors = document.querySelector("#addColors");
+		
+		displayColors.onclick = function(){
+				document.querySelector("#displayItems").innerHTML = 
+				text = "<select>";
+				for (i = 0; i < colorArrayLength; i++) {
+					text += "<option>" + colorsArray[i] + "</option>";
+					}
+					text += "</select>";
+					document.querySelector("#displayItems").innerHTML = text;
+		};
+		
+	});
 
 </script>
 
@@ -63,4 +97,26 @@ var colorsArray = new Array("Red","Yellow","Green");
 </p>
 </body>
 </html>
+
+
+<!-- When the Products radio button is selected change the options of the Results Drop Down box to only show the contents of the products array as the options.
+When the Colors radio button is selected change the options of the Results Drop Down box to only show the contents of the colors array as the options.
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
