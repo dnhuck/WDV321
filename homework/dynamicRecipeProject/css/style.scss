@@ -14,35 +14,48 @@
 	flex: 50%;
 }
 
+img{
+	border: 2px solid black;
+}
+
 body{
-	background-color: antiquewhite;
+	background-color: white;
 }
 
 heading{
 		
 	//LOGO AND HEADER
 	div.row:nth-of-type(1){
-		background-color: red;
+		background-color: gainsboro;
 		padding: 4px 0px 4px 10px;
 		h1{
 		font-family: 'Abril Fatface', cursive;
 		font-size: 70px;
 		}
+		// LEFT HEADER
+		.column:nth-of-type(1){
+			flex: 30%;
+		// LOGO IMAGE
+			img{
+				border-radius: 100%;
+				width: 25%;
+				margin: auto;
+			}
+		}
+		// RIGHT HEADER
+		.column:nth-of-type(2){
+			flex: 70%;
+		}
 	}
-	
-	//LOGO IMAGE
-	div:nth-of-type(1) img{
-		border-radius: 100%;
-		width: 15%;
-		margin: auto;
-		//margin-left: 15px;
+	 // SELECT RECIPE BACKGROUND COLOR
+	div.row:nth-of-type(2){
+		background-color: gray;
 	}
 	
 	//SELECT RECIPE
 	div.row:nth-of-type(2) h3{
 		font-size: 50px;
 		margin: 10px 0px 10px 10px;
-		
 	}
 	
 	//RADIO BUTTONS FOR SELECT RECIPE
@@ -60,7 +73,8 @@ div#recipe1{
 	
 	// CHILLI IMAGE
 	div:nth-of-type(2) img{
-		width: 350px;
+		margin: auto;
+		width: 70%;
 	}
 	
 	div.row div:nth-last-of-type(2){
@@ -69,16 +83,73 @@ div#recipe1{
 	
 	//DIFFICULTY
 	div:nth-of-type(1) span{
-		color: #E1D11B;
+		color: #BED649;
 		text-transform: uppercase;
 	}
 	
 	.row{
-		background-color: burlywood;
+		background-color: gainsboro;
+		padding: 5px;
+	}
+}
+
+div#recipe2{ 
+	
+	// IMAGE
+	div:nth-of-type(2) img{
+		margin: auto;
+		width: 70%;
+	}
+	
+	div.row div:nth-last-of-type(2){
+		font-size: 25px;
+	}
+	
+	//DIFFICULTY
+	div:nth-of-type(1) span{
+		color: green;
+		text-transform: uppercase;
+	}
+	
+	.row{
+		background-color: gainsboro;
+		padding: 5px;
+		
+		div:nth-of-type(1){
+			//margin: auto;
+		}
+	}
+}
+
+div#recipe3{ 
+	
+	// CHILLI IMAGE
+	div:nth-of-type(2) img{
+		margin: auto;
+		width: 70%;
+	}
+	
+	div.row div:nth-last-of-type(2){
+		font-size: 25px;
+	}
+	
+	//DIFFICULTY
+	div:nth-of-type(1) span{
+		color: red;
+		text-transform: uppercase;
+	}
+	
+	.row{
+		background-color: gainsboro;
+		padding: 5px;
+		
+		div:nth-of-type(1){
+			//margin: auto;
+		}
 	}
 }
 
 footer{
 	text-align: center;
-	background-color: gray;
+	background-color: gainsboro;
 }

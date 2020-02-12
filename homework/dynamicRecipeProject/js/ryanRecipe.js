@@ -74,7 +74,7 @@ $(document).ready(function(){
 	});
 	
 	//COPYWRITE
-	$('footer span').html('Copywrite ' + new Date().getFullYear());
+	$('footer span').html('©Copywrite ' + new Date().getFullYear());
 	
 	
 	
