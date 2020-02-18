@@ -1,7 +1,5 @@
 // JavaScript Document
 
-
-
 $(document).ready(function(){
 	
 	$("#recipe1").show();
@@ -9,16 +7,20 @@ $(document).ready(function(){
 	$("#recipe3").hide();
 	
 	$(".halfSizePick").hide();
-	$(".normalSizePick").show();
+	$(".normalSizePick").hide();
 	$(".doubleSizePick").hide();
+	
+	$(".1instructions").hide();
+	$(".2instructions").hide();
+	$(".3instructions").hide();
+
+	$(".1ingredients").hide();
 		
 	// VARIABLES
 	let recipe1 = document.querySelector("#recipe1");
 	let recipe2 = document.querySelector("#recipe2");
 	let recipe3 = document.querySelector("#recipe3");
 	let select = document.querySelector("#recipeSelect");
-	let radioHTML = "";
-	let quantityHTML = "";
 	
 	// Selecting the recipe
 	$("#firstRecipe").click(function(){
@@ -47,6 +49,10 @@ $(document).ready(function(){
 		$(".halfSizePick").show();
 		$(".normalSizePick").hide();
 		$(".doubleSizePick").hide();
+		
+		$(".1instructions").show();
+		$(".2instructions").hide();
+		$(".3instructions").hide();
 	});
 	
 	$(".normalSize").click(function(){
@@ -54,6 +60,10 @@ $(document).ready(function(){
 		$(".halfSizePick").hide();
 		$(".normalSizePick").show();
 		$(".doubleSizePick").hide()
+		
+		$(".1instructions").hide();
+		$(".2instructions").show();
+		$(".3instructions").hide();
 	});
 	
 	$(".doubleSize").click(function(){
@@ -61,8 +71,11 @@ $(document).ready(function(){
 		$(".halfSizePick").hide();
 		$(".normalSizePick").hide();
 		$(".doubleSizePick").show()
+		
+		$(".1instructions").hide();
+		$(".2instructions").hide();
+		$(".3instructions").show();
 	});
-	
 	
 	// SHOWING AND HIDING THE INGREDIENTS AND INSTRUCTIONS
 	$(".showIn").click(function(){
@@ -70,7 +83,9 @@ $(document).ready(function(){
 	});
 	
 	$(".toggleIns").click(function(){
-		$(".1instructions").toggle();
+		$(".instructions").toggle();
+		//$(".2instructions").toggle();
+		//$(".3instructions").toggle();
 	});
 	
 	//COPYWRITE
